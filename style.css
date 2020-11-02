@@ -10,16 +10,18 @@ body {
     font-size: 62.5%;
 }
 
-.startWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+/* Defined space for most wrapper classes */
+.startWrapper, 
+.infoWrapper {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+.startWrapper, 
+.infoWrapper {
+    display: flex;
+    flex-direction: column;
 
     width: 50%;
     height: 50%;
@@ -30,6 +32,12 @@ body {
     border-radius: 5rem;
 }
 
+/*  Start Wrapper Styles */
+.startWrapper {
+    justify-content: center;
+    align-items: center;
+}
+
 .startWrapper h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 4rem;
@@ -38,28 +46,6 @@ body {
     padding: 1rem;
 }
 
-.infoWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-.buttonWrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
 .startBtn {
     background:linear-gradient(0deg, #dddd, #ffff);
     border-radius: 2rem;
@@ -82,16 +68,67 @@ body {
     color: grey;
     background:linear-gradient(180deg, #dddd, #ffff);
 
-    transition: all 1s;
+    transition: .5s;
 }
 .startBtn:hover {
     cursor: pointer;
     color: black;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 
-    transition: all 1s;
+    transition: .5s;
     box-shadow: black;
 }
-.startBtn:hover::after {
-    transition: all 1s;
+
+/* Info Wrapper Styles */
+.infoWrapper .rulesInfo {
+    border-bottom: gray 1px solid;
+    padding: 2rem;
+    text-align: center;
+}
+
+.infoWrapper div span {
+    font-size: 2rem;
+    margin: 1.5rem;
+    padding: .5rem 1.5rem;
+    text-align: center;
+    width: 50%;
+    height: auto;
+}
+.infoWrapper ul {
+    font-size: 1rem;
+
+    margin: 1rem .5rem;
+    padding: 1rem .5rem;
+    line-height: 2rem;
+    list-style: none;
+}
+
+.buttonWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: stretch;
+    border-top: gray 1px solid;
+}
+
+.buttonWrapper .buttonSubwrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+
+    padding: 2rem;
+    text-align: center;
+}
+.buttonSubwrapper div button {
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    width: 6rem;
+    height: 3rem;
+
+    border: none;
+    border-radius: .5rem;
+}
+.buttonSubwrapper div button:hover {
+    color: white;
 }
