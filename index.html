@@ -3,52 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Quiz</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
+    <!-- External Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
     <body>
-        <div>
-        <div class="startWrapper">
-            <h1>JavaScript Quiz</h1>
+        <div class="bodyWrapper">
+            <div class="startWrapper">
+                <h1>JavaScript Quiz</h1>
 
-            <!-- this is the button to start the quiz -->
-            <div class="startBtn">
-                <button>Start Quiz</button>
-            </div>
-        </div>
-
-        <div class="infoWrapper">
-            <div class="rulesInfo">
-                <span>Rules of the Quiz</span>
-            </div>
-            <br>
-            <div class="rulesList">
-                <ul>
-                    <li>1. You will have 5 minutes to answer as many questions as possible.</li>
-                    <li>2. You will gain 30 seconds if you answer correctly.</li>
-                    <li>3. You will loose 10 seconds if you answer incorrectly.</li>
-                    <li>4. You cannot exit the quiz while taking it.</li>
-                </ul>
+                <!-- button to start the quiz -->
+                <div class="startBtn">Start Quiz</div>
+                <!-- button for the rules -->
+                <div class="rulesBtn">Rules</div>
+                <!-- button for the highscores -->
+                <div class="leaderBoard">Leaderboard</div>
             </div>
 
-            <div class="buttonWrapper">
-                <div class="buttonSubwrapper">
-                    <div class="quitBtn">
-                        <button>Quit</button>
-                    </div>
-                    <div class="continueBtn">
-                        <button>Continue</button>
+            <div class="infoWrapper">
+                <div class="rulesTitle">
+                    <span>Rules of the Quiz</span>
+                </div>
+              
+                <div class="rulesList">
+                    <ul>
+                        <li>1. You will have 5 minutes on the starting timer.</li>
+                        <li>2. You will gain 30 seconds if you answer correctly.</li>
+                        <li>3. You will loose 10 seconds if you answer incorrectly.</li>
+                        <li>4. You cannot exit the quiz while taking it.</li>
+                        <li>5. You can save your score at the end of the quiz.</li>
+                    </ul>
+                </div>
+
+                <div class="buttonWrapper">
+                    <div class="buttonSubwrapper">
+                        <div class="quitBtn">Quit</div>
+                        <div class="continueBtn">Continue</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <script src="./script.js"></script>
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <!-- JavaScript -->
+        <script type="text/javascript" src="./assets/js/script.js">
     </body>
 </html>

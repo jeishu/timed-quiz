@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+}
+
+body {
+    background:#f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 62.5%
+}
+
+/* Defined space for most wrapper classes */
+.bodyWrapper {
+    width: 100vw;
+    height: 100vh;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 80rem;
+    margin: 0 auto;
+}
+.startWrapper, 
+.infoWrapper {
+    display: flex;
+    flex-direction: column;
+
+    width: 70vw;
+    height: 50vh;
+    margin: 2rem auto;
+    padding: 2rem 0;
+
+    background: white;
+    border-radius: 1rem;
+
+    /* Puts the quiz in the middle of the page */
+    position: absolute;
+    top:20%;
+}
+
+/*  Start Wrapper Styles */
+.startWrapper {
+    justify-content: center;
+    align-items: center;
+}
+
+.startWrapper h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    margin: 0rem 1rem 2rem;
+    padding: 1rem;
+}
+
+.startBtn, 
+.rulesBtn,
+.leaderBoard {
+    cursor: pointer;
+
+    width: 30rem;
+    height: auto;
+
+    border: none;
+    border-radius: 1.5rem;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    padding: 1.5rem;
+    margin: 1rem;
+
+    color: rgb(202, 202, 202);
+    background: #f5f5f5;
+
+    transition: .5s;
+}
+.startBtn:hover, 
+.leaderBoard:hover, 
+.rulesBtn:hover {
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    background: rgb(202, 202, 202);
+
+    transition: .5s;
+}
+
+
+/* Info Wrapper Styles */
+.infoWrapper {
+    /* display: none; */
+    justify-content: center;
+    align-items: center;
+
+}
+.rulesTitle {
+    width: 90%;
+    height:auto;
+
+    border-bottom: gray 1px solid;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.infoWrapper div span {
+    font-size: 2rem;
+    margin: 1.5rem;
+    padding: .5rem 1.5rem;
+    text-align: center;
+    width: 50%;
+    height: auto;
+}
+.rulesList {
+    width: 85%;
+    height: auto;
+    
+    padding: 0 3rem;
+}
+.infoWrapper ul {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    width: 85%;
+    height: auto;
+
+    padding: 1rem;
+    
+    line-height: 3rem;
+    list-style: none;
+    font-size: .9rem;
+}
+
+.buttonWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: stretch;
+
+    width: 90%;
+    height: auto;
+
+    border-top: gray 1px solid;
+}
+
+.buttonSubwrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+
+    padding: 2rem;
+    text-align: center;
+}
+.buttonSubwrapper div {
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    width: 6rem;
+    height: 3rem;
+
+    text-align: center;
+    text-decoration: none;
+
+    border: none;
+    border-radius: .5rem;
+}
+.buttonSubwrapper div:hover {
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    background: rgb(202, 202, 202);
+
+    transition: .5s;
+}
