@@ -1,30 +1,45 @@
 // DOM Elements
     // Pages
     let startPageEl = $(".startPage");
-    let infoPageEl = $(".infoPage");
+    let rulesPageEl = $(".rulesPage");
     let lbPageEl = $(".lbPage");
+    let quizPageEl = $(".quizPage");
 
     // Start Page Buttons
     let startBtnEl = startPageEl.find(".startBtn");
     let rulesBtnEl = startPageEl.find(".rulesBtn");
     let lbhomeBtnEl = startPageEl.find(".lbhomeBtn");
+    let quizBtnEl = startPageEl.find(".startBtn");
 
     // Info Page Buttons
-    let homeBtnEl = infoPageEl.find(".homeBtn");
-    let lbBtnEl = infoPageEl.find(".lbBtn");
+    let homeBtnEl = rulesPageEl.find(".homeBtn");
+    let lbBtnEl = rulesPageEl.find(".lbBtn");
 
     // Leaderboard Page
     let lbHomePageBtn = lbPageEl.find(".homeBtn");
 
 // Start Page Buttons
     // if the rules button is clicked, the info page is shown and hides other pages
+    quizBtnEl.on("click", function() {
+        let quizHide = true;
+
+        if (quizHide === true) {
+            quizPageEl.show();
+            rulesPageEl.hide();
+            startPageEl.hide();
+            lbPageEl.hide();
+            return;
+        }
+    });
+
     rulesBtnEl.on("click", function() {
         let rulesHide = true;
 
         if (rulesHide === true) {
-            infoPageEl.show();
+            rulesPageEl.show();
             startPageEl.hide();
             lbPageEl.hide();
+            quizPageEl.hide();
             return;
         }
     });
@@ -35,8 +50,9 @@
 
         if (lbHide === true) {
             lbPageEl.show();
-            infoPageEl.hide();
+            rulesPageEl.hide();
             startPageEl.hide();
+            quizPageEl.hide();
             return;
         }
     });
@@ -48,8 +64,9 @@
 
         if (homeHide === true) {
             startPageEl.show();
-            infoPageEl.hide();
+            rulesPageEl.hide();
             lbPageEl.hide();
+            quizPageEl.hide();
             return;
         }
     });
@@ -59,8 +76,9 @@
 
         if (lbHide === true) {
             lbPageEl.show();
-            infoPageEl.hide();
+            rulesPageEl.hide();
             startPageEl.hide();
+            quizPageEl.hide();
             return;
         }
     });
@@ -72,8 +90,9 @@
 
         if (lbhomeHide === true) {
             startPageEl.show();
-            infoPageEl.hide();
+            rulesPageEl.hide();
             lbPageEl.hide();
+            quizPageEl.hide();
             return;
         }
     });
