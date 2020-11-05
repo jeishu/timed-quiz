@@ -24,7 +24,7 @@ body {
     max-width: 80rem;
     margin: 0 auto;
 }
-.startPage, 
+.homePage, 
 .rulesPage,
 .lbPage,
 .quizPage {
@@ -45,14 +45,14 @@ body {
 }
 
 /*  Start Wrapper Styles */
-.startPage {
+.homePage {
     /* Hides the Start Page until being called on */
     /* display: none; */
     justify-content: flex-start;
     align-items: center;
 }
 
-.startPage h1 {
+.homePage h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 3rem;
     text-align: center;
@@ -60,9 +60,8 @@ body {
     padding: 1rem;
 }
 
-.startBtn, 
-.rulesBtn,
-.lbhomeBtn {
+.homeStartBtn,
+.homeLbBtn {
     cursor: pointer;
 
     width: 30rem;
@@ -84,9 +83,8 @@ body {
 
     transition: .5s;
 }
-.startBtn:hover, 
-.lbhomeBtn:hover, 
-.rulesBtn:hover {
+.homeStartBtn:hover, 
+.homeLbBtn:hover {
     cursor: pointer;
     color: rgb(0, 0, 0);
     background: rgb(202, 202, 202);
@@ -142,7 +140,7 @@ body {
     height: auto;
 
     padding: 1rem;
-    margin: auto;
+    
     
     line-height: 3rem;
     list-style: none;
@@ -171,8 +169,9 @@ body {
     padding: 2rem;
     text-align: center;
 }
-.homeBtn, 
-.lbBtn {
+.rulesHomeBtn,
+.rulesStartBtn,
+.lbHomeBtn {
     font-size: 1rem;
     width: 10rem;
     height: auto;
@@ -192,7 +191,9 @@ body {
 
     transition: .5s;
 }
-.buttonSubwrapper div:hover {
+.rulesHomeBtn:hover, 
+.rulesStartBtn:hover,
+.lbHomeBtn:hover {
     cursor: pointer;
     color: #f5f5f5;
     background: rgb(202, 202, 202);
@@ -219,9 +220,10 @@ body {
     text-decoration: none;
 }
 .scores {
-    font-size: 1.5rem;
-    padding: 1rem;
-    margin: auto 3rem;
+    font-size: 1.1rem;
+    padding: 2rem;
+    margin: 1rem auto;
+    width: 80%;
 }
 
 /* Quiz Page */
@@ -256,19 +258,21 @@ body {
 .answerWrapper {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    
+    width: 80%;
+    height: auto;
 
     line-height: 3rem;
     list-style: none;
     font-size: .9rem;
 
-    padding: 1rem;
-    margin: auto 2rem;
+    padding: 2rem;
+    margin: auto;
 }
 .answerWrapper .choices {
     background: #f5f5f5;
-
-    width: 60vw;
-    height: auto;
 
     padding: .5rem;
     margin: 1rem;
@@ -277,8 +281,10 @@ body {
     transition: .5s;
 }
 .timer {
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
+    letter-spacing: .5rem;
+
 
     width: 90%;
     height: auto;
@@ -287,7 +293,18 @@ body {
     margin: auto;
 
     border-top: gray 1px solid;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
+
+.minutes,
+.seconds {
+    margin: 0 1rem;
+    font-size: 1.3rem;
+}
+
 .choices:hover {
     cursor: pointer;
     color: #f5f5f5;

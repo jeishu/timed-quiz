@@ -17,16 +17,14 @@
     </head>
     <body>
         <div class="bodyWrapper">
-        <!-- === Start Page === -->
-            <div class="startPage">
+        <!-- === Home Page === -->
+            <div class="homePage">
                 <h1>JavaScript Quiz</h1>
 
-                <!-- button to start the quiz -->
-                <div class="startBtn">Start Quiz</div>
-                <!-- button for the rules -->
-                <div class="rulesBtn">Rules</div>
+                <!-- button paths to the rules page -->
+                <div class="homeStartBtn">Start Quiz</div>
                 <!-- button for the highscores -->
-                <div class="lbhomeBtn">Leaderboard</div>
+                <div class="homeLbBtn">Leaderboard</div>
             </div>
 
         <!-- === Rules Page === -->
@@ -42,15 +40,14 @@
                         <li>3. You will loose 10 seconds if you answer incorrectly.</li>
                         <li>4. You cannot exit the quiz while taking it.</li>
                         <li>5. You can save your score at the end of the quiz.</li>
-                        <li>6. You will have a hint button if you are stuck.</li>
                     </ul>
                 </div>
                 
                 <!-- navigation buttons -->
                 <div class="buttonWrapper">
                     <div class="buttonSubwrapper">
-                        <div class="homeBtn">Back</div>
-                        <div class="lbBtn">Leaderboard</div>
+                        <div class="rulesHomeBtn">Back</div>
+                        <div class="rulesStartBtn">Start Quiz</div>
                     </div>
                 </div>
             </div>
@@ -68,7 +65,7 @@
                 <!-- navigation buttons -->
                 <div class="buttonWrapper">
                     <div class="buttonSubwrapper">
-                        <div class="homeBtn">Back</div>
+                        <div class="lbHomeBtn">Back</div>
                     </div>
                 </div>
             </div>
@@ -79,13 +76,13 @@
                     
                 </header>
                 <div class="answerWrapper">
-                    <div class="choices" id="choiceA">A</div>
-                    <div class="choices" id="choiceB">B</div>
-                    <div class="choices" id="choiceC">C</div>
-                    <div class="choices" id="choiceD">D</div>
+                    <div class="choices" id="choiceAbtn">A</div>
+                    <div class="choices" id="choiceBbtn">B</div>
+                    <div class="choices" id="choiceCbtn">C</div>
+                    <div class="choices" id="choiceDbtn">D</div>
                 </div>
                 <div class="timer">
-                    Time: <span class="timeCounter">5:00</span>
+                   <div class="minutes">5</div>:<div class="seconds">00</div>
                 </div> 
             </div>
         </div>

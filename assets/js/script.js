@@ -1,95 +1,80 @@
 // DOM Elements
     // Pages
-    let startPageEl = $(".startPage");
+    let homePageEl = $(".homePage");
     let rulesPageEl = $(".rulesPage");
     let lbPageEl = $(".lbPage");
     let quizPageEl = $(".quizPage");
 
-    // Start Page Buttons
-    let startBtnEl = startPageEl.find(".startBtn");
-    let rulesBtnEl = startPageEl.find(".rulesBtn");
-    let lbhomeBtnEl = startPageEl.find(".lbhomeBtn");
-    let quizBtnEl = startPageEl.find(".startBtn");
-
-    // Info Page Buttons
-    let homeBtnEl = rulesPageEl.find(".homeBtn");
-    let lbBtnEl = rulesPageEl.find(".lbBtn");
+    // Home Page Buttons
+    let homeStartBtnEl = homePageEl.find(".homeStartBtn"); // this should lead to the quiz page
+    let homeLbBtnEl = homePageEl.find(".homeLbBtn"); // this should lead to the leaderboard page
+    
+    // Rules Page Buttons
+    let rulesHomeBtnEl = rulesPageEl.find(".rulesHomeBtn");
+    let rulesStartBtnEl = rulesPageEl.find(".rulesStartBtn");
 
     // Leaderboard Page
-    let lbHomePageBtn = lbPageEl.find(".homeBtn");
+    let lbHomeBtnEl = lbPageEl.find(".lbHomeBtn");
 
-// Start Page Buttons
-    // if the rules button is clicked, the info page is shown and hides other pages
-    quizBtnEl.on("click", function() {
-        let quizHide = true;
-
-        if (quizHide === true) {
-            quizPageEl.show();
-            rulesPageEl.hide();
-            startPageEl.hide();
-            lbPageEl.hide();
-            return;
-        }
-    });
-
-    rulesBtnEl.on("click", function() {
+// Home Page Buttons
+    // if the 'start quiz' button is clicked, the rules page is shown and hides other pages
+    homeStartBtnEl.on("click", function() {
         let rulesHide = true;
 
         if (rulesHide === true) {
+            homePageEl.hide();
             rulesPageEl.show();
-            startPageEl.hide();
             lbPageEl.hide();
             quizPageEl.hide();
             return;
         }
     });
 
-    // if the leaderboard button is clicked, shows leaderboard shown and hides other pages
-    lbhomeBtnEl.on("click", function() {
+    homeLbBtnEl.on("click", function() {
         let lbHide = true;
 
         if (lbHide === true) {
-            lbPageEl.show();
+            homePageEl.hide();
             rulesPageEl.hide();
-            startPageEl.hide();
+            lbPageEl.show();
             quizPageEl.hide();
             return;
         }
     });
 
-// Info Page Buttons
-    // if the home button is clicked, goes to start page and hides other pages
-    homeBtnEl.on("click", function() {
+// Rules Page Buttons
+    // if the 'back' button is clicked, the home page is shown and hides other pages
+    rulesHomeBtnEl.on("click", function() {
         let homeHide = true;
 
         if (homeHide === true) {
-            startPageEl.show();
+            homePageEl.show();
             rulesPageEl.hide();
             lbPageEl.hide();
             quizPageEl.hide();
             return;
         }
     });
+    // if the 'start quiz' button is clicked, the quiz page is shown and hides other pages
+    rulesStartBtnEl.on("click", function() {
+        let quizHide = true;
 
-    lbBtnEl.on("click", function() {
-        let lbHide = true;
-
-        if (lbHide === true) {
-            lbPageEl.show();
+        if (quizHide === true) {
+            homePageEl.hide();
             rulesPageEl.hide();
-            startPageEl.hide();
-            quizPageEl.hide();
+            lbPageEl.hide();
+            quizPageEl.show();
             return;
         }
     });
 
 // Leaderboard Page Button
-    // if back button is clicked, goes back to the start page
-    lbHomePageBtn.on("click", function() {
-        let lbhomeHide = true;
+    // if back button is clicked, the home page is shown and hides other pages
+    lbHomeBtnEl.on("click", function() {
+        let homeHide = true;
 
-        if (lbhomeHide === true) {
-            startPageEl.show();
+        if (homeHide === true) {
+            homePageEl.show();
             rulesPageEl.hide();
             lbPageEl.hide();
             quizPageEl.hide();
