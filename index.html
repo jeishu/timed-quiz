@@ -30,13 +30,13 @@
         <!-- === Rules Page === -->
             <div class="rulesPage">
                 <div class="rulesTitle">
-                    <span>Rules of the Quiz</span>
+                    <span>Rules</span>
                 </div>
               
                 <div class="rulesList">
                     <ul>
                         <li>1. You will have 3 minutes on the starting timer.</li>
-                        <li>2. You will loose 10 seconds if you answer incorrectly.</li>
+                        <li>2. You will loose 20 seconds if you answer incorrectly.</li>
                         <li>3. You cannot exit the quiz while taking it.</li>
                         <li>4. Your score is the time you have left.</li>
                         <li>5. You can save your score at the end of the quiz.</li>
@@ -75,15 +75,32 @@
                     <div class="question">What is the question?</div>
                 </section>
                 <div class="answerWrapper">
-                    <div class="choices" id="choiceAbtn">A</div>
-                    <div class="choices" id="choiceBbtn">B</div>
-                    <div class="choices" id="choiceCbtn">C</div>
-                    <div class="choices" id="choiceDbtn">D</div>
+                    <div class="choices" data-number="1" id="choiceAbtn">A</div>
+                    <div class="choices" data-number="2" id="choiceBbtn">B</div>
+                    <div class="choices" data-number="3" id="choiceCbtn">C</div>
+                    <div class="choices" data-number="4" id="choiceDbtn">D</div>
                 </div>
                 <div class="timer">
                   Time Left: <span id="seconds">90</span>
                 </div> 
             </div>
+
+        <!-- === Form Page === -->
+            <div class="formPage">
+                <section class="formHeader">
+                    <div>Your Score is: <span class="formScore"></span></div>
+                </section>
+                <form id="userInput">
+                    <p>Your Initials: <input type="text"id="userInitials" placeholder="Initials Here"></input></p>
+                    <div class="formSubmitBtn">Submit</div>
+                </form>
+                <div class="formBtnWrapper">
+                    <div class="formHomeBtn">Home Page</div>
+                    <div class="formLbBtn">LeaderBoard</div>
+                </div>
+            </div>
+
+
         </div>
 
         <!-- jQuery -->

@@ -4,30 +4,38 @@
     let rulesPageEl = $(".rulesPage");
     let lbPageEl = $(".lbPage");
     let quizPageEl = $(".quizPage");
-
+    let formPageEl = $(".formPage");
+    
     // Home Page Buttons
-    let homeStartBtnEl = homePageEl.find(".homeStartBtn"); // goes to the rules page
-    let homeLbBtnEl = homePageEl.find(".homeLbBtn"); // goes to the leaderboard page
+    let homeStartBtnEl = $(".homeStartBtn"); // goes to the rules page
+    let homeLbBtnEl = $(".homeLbBtn"); // goes to the leaderboard page
     
     // Rules Page Buttons
-    let rulesHomeBtnEl = rulesPageEl.find(".rulesHomeBtn"); // goes to the home page
-    let rulesStartBtnEl = rulesPageEl.find(".rulesStartBtn"); // goes to the quiz page
+    let rulesHomeBtnEl = $(".rulesHomeBtn"); // goes to the home page
+    let rulesStartBtnEl = $(".rulesStartBtn"); // goes to the quiz page
 
     // Leaderboard Page
-    let lbHomeBtnEl = lbPageEl.find(".lbHomeBtn"); // goes to the home page
+    let lbHomeBtnEl = $(".lbHomeBtn"); // goes to the home page
 
     // Timer Variable
-    let secondsEl = document.querySelector("#seconds"); // for some reason $("#seconds") was not working. 
+    let timerEl = $(".timer");
+    let secondsEl = $("#seconds"); // for some reason $("#seconds") was not working. 
     
     // Others
-    let questionEl = document.querySelector(".question")
-    let answerWrapperEl = document.querySelector(".answerWrapper");
+    let questionEl = $(".question")
+    let answerWrapperEl = $(".answerWrapper");
+
     // Quiz Page Buttons
-    let choicesEl = document.querySelector(".choices");
-    let choiceAbtnEl = document.querySelector("#choiceAbtn");
-    let choiceBbtnEl = document.querySelector("#choiceBbtn");
-    let choiceCbtnEl = document.querySelector("#choiceCbtn");
-    let choiceDbtnEl = document.querySelector("#choiceDbtn");
+    let choicesEl = $(".choices");
+    let choiceAbtnEl = $("#choiceAbtn");
+    let choiceBbtnEl = $("#choiceBbtn");
+    let choiceCbtnEl = $("#choiceCbtn");
+    let choiceDbtnEl = $("#choiceDbtn");
+
+    // Form Page Buttons
+    let formHomeBtnEl = $(".formHomeBtn");
+    let formLbBtnEl = $(".formLbBtn");
+    let formScoreEl = $(".formScore");
 
 // Home Page Buttons
     // if the 'start quiz' button is clicked, the rules page is shown and hides other pages
@@ -39,7 +47,6 @@
             rulesPageEl.show();
             lbPageEl.hide();
             quizPageEl.hide();
-            
         }
     });
     // if the 'leaderboard' button is clicked, the leaderboard page is shown and hides other pages
@@ -51,7 +58,6 @@
             rulesPageEl.hide();
             lbPageEl.show();
             quizPageEl.hide();
-          
         }
     });
 
@@ -65,7 +71,6 @@
             rulesPageEl.hide();
             lbPageEl.hide();
             quizPageEl.hide();
-            
         }
     });
     // if the 'start quiz' button is clicked, the quiz page is shown and hides other pages
@@ -79,10 +84,8 @@
             rulesPageEl.hide();
             lbPageEl.hide();
             quizPageEl.show();
-            
         }
-        startGame();
-        
+        questionChange();
     });
 
 // Leaderboard Page Button
@@ -95,37 +98,36 @@
             rulesPageEl.hide();
             lbPageEl.hide();
             quizPageEl.hide();
-            
         }
     });
 
-// Starts Time
-let displayTime = 90;
+// Form Page Button
+    // if home page button is clicked, the home page is shown and hides other pages
+    formHomeBtnEl.on("click", function() {
+        let formHomeHide = true;
 
-function timeStart() {
-    let timerInterval = setInterval(function() {
-        displayTime--;
-        secondsEl.textContent = displayTime;
-    
-        // console.log("displayTime " + displayTime);
-        // console.log(secondsEl.textContent);
-        // console.log(typeof secondsEl.textContent);
-
-        if(displayTime === 0) {
-            clearInterval(timerInterval);
-            // console.log("This works");
+        if (formHomeHide === true) {
+            homePageEl.show();
+            rulesPageEl.hide();
+            lbPageEl.hide();
+            quizPageEl.hide();
+            formPageEl.hide();
         }
+    });
+    // if leaderboards button is clicked, the home page is shown and hides other pages
+    formLbBtnEl.on("click", function() {
+        let formLbHide = true;
 
-    }, 1000);
-}
+        if (formLbHide === true) {
+            homePageEl.hide();
+            rulesPageEl.hide();
+            lbPageEl.show();
+            quizPageEl.hide();
+            formPageEl.hide();
+        }
+    });
 
-
-let currentQuestion = [];
-let questionCounter = 0;
-let score = 0;
-let questionsLeft = [];
-let totalQuestions = 5;
-
+// Array of Questions and Answers
 let questions = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
@@ -154,44 +156,89 @@ let questions = [
     {
         question: "How do you write a if statement?",
         choiceA1: "If roses are red and violets are blue, why isn't my coding working?",
-        choiceB1: "if (!violet === blue) {}",
+        choiceB1: "if (violet != blue) {}",
         choiceC1: "if [blue == color] {}",
         choiceD1: "if {statement} ()",
         answer:   "if (!violet === blue) {}"
     },
     {
         question: "Which of these is an array?",
-        choiceA1: "var color = ['I', 'am','not','an','array'];",
-        choiceB1: "let color = ('I', 'am','an','array');",
-        choiceC1: "const color = {'I', 'am','total','an','array'};",
-        choiceD1: "array color = ['I', 'am','definitely', 'not','an','array'];",
-        answer:   "var color = ['I', 'am','not','an','array'];"
-    },
+        choiceA1: "var color = ['I', 'am', 'not', 'an', 'array'];",
+        choiceB1: "let color = ('I', 'am', 'an', 'array');",
+        choiceC1: "const color = {'I', 'am', 'totally', 'an', 'array'};",
+        choiceD1: "array color = ['I', 'am', 'definitely', 'not', 'an', 'array'];",
+        answer:   "var color = ['I', 'am', 'not', 'an', 'array'];"
+    }
 ];
 
-function startGame() {
-    questionCounter = 0;
-    score = 0;
-    questionsLeft = [...questions];
-    // console.log(questionsLeft);
-    questionChange();
-}
+// Starts Time
+let questionCounter = 0;
+let displayTime = "";
+
+answerWrapperEl.on("click", answerCheck);
 
 // Changes the questions and answers randomly from the array
 function questionChange() {
-    // the counter changes
     questionCounter++;
-    // randomizes the questions and answers everytime you take the quiz
-    let questionIndex = Math.floor(Math.random() * questionsLeft.length);
-    currentQuestion = questionsLeft[questionIndex];
-    questionEl.textContent = currentQuestion.question;
-
-    choiceAbtnEl.textContent = currentQuestion.choiceA1;
-    choiceBbtnEl.textContent = currentQuestion.choiceB1;
-    choiceCbtnEl.textContent = currentQuestion.choiceC1;
-    choiceDbtnEl.textContent = currentQuestion.choiceD1;
-
-    // takes the question you already used out of the array
-    questionsLeft.splice(questionIndex, 1);
+    questionEl.text(questions[questionCounter].question);
+    choiceAbtnEl.text(questions[questionCounter].choiceA1);
+    choiceBbtnEl.text(questions[questionCounter].choiceB1);
+    choiceCbtnEl.text(questions[questionCounter].choiceC1);
+    choiceDbtnEl.text(questions[questionCounter].choiceD1);
 }
 
+function timeStart() {
+    
+    displayTime = 90;
+    questionEl.text(questions[questionCounter].question);
+    choiceAbtnEl.text(questions[questionCounter].choiceA1);
+    choiceBbtnEl.text(questions[questionCounter].choiceB1);
+    choiceCbtnEl.text(questions[questionCounter].choiceC1);
+    choiceDbtnEl.text(questions[questionCounter].choiceD1);
+
+    let timerInterval = setInterval(function() {
+        displayTime--;
+        secondsEl.text(displayTime);    
+
+        // if timer hits zero, it will go to the form page
+        if(displayTime === 0) {
+            clearInterval(timerInterval);
+            // console.log("This works");
+            quizPageEl.hide();
+            formPageEl.show();
+            formScoreEl.text(displayTime);
+        }
+        // if all questions are answered before the timer runs out, it will got to the form page
+        else if (questionCounter > questions.length-1) {
+            clearInterval(timerInterval);
+            quizPageEl.hide();
+            setTimeout(function(){
+                formPageEl.show();
+                formScoreEl.text(displayTime);
+            }, 1000);
+        }
+    }, 1000);
+}
+
+let kaomoji = "";
+
+function answerCheck(e) {
+    let userChoice = e.target.id;
+    if (userChoice == "choiceAbtn" || userChoice == "choiceBbtn" || userChoice == "choiceCbtn" || userChoice == "choiceDbtn") {
+        let choiceText = document.getElementById(userChoice).innerText;
+        console.log(choiceText);
+        let answerChoice = (choiceText === questions[questionCounter].answer);
+        if (answerChoice) {
+            kaomoji = document.createElement("p");
+            kaomoji.textContent = "You did it!";
+            quizPageEl.append(kaomoji);
+        }
+        else {
+            kaomoji = document.createElement("p");
+            kaomoji.textContent = "Wrong Answer!";
+            quizPageEl.append(kaomoji);
+            displayTime.textContent = displayTime - 10;
+        }
+        questionChange();
+    }
+}
