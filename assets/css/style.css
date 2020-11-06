@@ -31,17 +31,13 @@ body {
     display: flex;
     flex-direction: column;
 
-    width: 70vw;
+    width: 50vw;
     height: auto;
     margin: 2rem auto;
-    padding: 2rem 0;
+    padding: 2rem;
 
     background: white;
     border-radius: 1rem;
-
-    /* Puts the quiz in the middle of the page */
-    position: absolute;
-    top:20%;
 }
 
 /*  Start Wrapper Styles */
@@ -64,13 +60,13 @@ body {
 .homeLbBtn {
     cursor: pointer;
 
-    width: 30rem;
+    width: 15rem;
     height: auto;
 
     border: none;
     border-radius: 1.5rem;
 
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
@@ -293,14 +289,9 @@ body {
     margin: auto;
 
     border-top: gray 1px solid;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
 }
 
-.minutes,
-.seconds {
+#seconds {
     margin: 0 1rem;
     font-size: 1.3rem;
 }

@@ -6,15 +6,27 @@
     let quizPageEl = $(".quizPage");
 
     // Home Page Buttons
-    let homeStartBtnEl = homePageEl.find(".homeStartBtn"); // this should lead to the quiz page
-    let homeLbBtnEl = homePageEl.find(".homeLbBtn"); // this should lead to the leaderboard page
+    let homeStartBtnEl = homePageEl.find(".homeStartBtn"); // goes to the rules page
+    let homeLbBtnEl = homePageEl.find(".homeLbBtn"); // goes to the leaderboard page
     
     // Rules Page Buttons
-    let rulesHomeBtnEl = rulesPageEl.find(".rulesHomeBtn");
-    let rulesStartBtnEl = rulesPageEl.find(".rulesStartBtn");
+    let rulesHomeBtnEl = rulesPageEl.find(".rulesHomeBtn"); // goes to the home page
+    let rulesStartBtnEl = rulesPageEl.find(".rulesStartBtn"); // goes to the quiz page
 
     // Leaderboard Page
-    let lbHomeBtnEl = lbPageEl.find(".lbHomeBtn");
+    let lbHomeBtnEl = lbPageEl.find(".lbHomeBtn"); // goes to the home page
+
+    // Timer Variable
+    let secondsEl = $("#seconds");
+    
+    // Others
+    let questionEl = $(".question");
+    let answerWrapperEl = $(".answerWrapper");
+    // Quiz Page Buttons
+    let choiceAbtnEl = $("#choiceAbtn");
+    let choiceBbtnEl = $("#choiceBbtn"); 
+    let choiceCbtnEl = $("#choiceCbtn");
+    let choiceDbtnEl = $("#choiceDbtn");
 
 // Home Page Buttons
     // if the 'start quiz' button is clicked, the rules page is shown and hides other pages
@@ -26,10 +38,10 @@
             rulesPageEl.show();
             lbPageEl.hide();
             quizPageEl.hide();
-            return;
+            
         }
     });
-
+    // if the 'leaderboard' button is clicked, the leaderboard page is shown and hides other pages
     homeLbBtnEl.on("click", function() {
         let lbHide = true;
 
@@ -38,7 +50,7 @@
             rulesPageEl.hide();
             lbPageEl.show();
             quizPageEl.hide();
-            return;
+          
         }
     });
 
@@ -52,11 +64,13 @@
             rulesPageEl.hide();
             lbPageEl.hide();
             quizPageEl.hide();
-            return;
+            
         }
     });
     // if the 'start quiz' button is clicked, the quiz page is shown and hides other pages
     rulesStartBtnEl.on("click", function() {
+        timeStart();
+
         let quizHide = true;
 
         if (quizHide === true) {
@@ -64,8 +78,9 @@
             rulesPageEl.hide();
             lbPageEl.hide();
             quizPageEl.show();
-            return;
+            
         }
+        
     });
 
 // Leaderboard Page Button
@@ -78,8 +93,36 @@
             rulesPageEl.hide();
             lbPageEl.hide();
             quizPageEl.hide();
-            return;
+            
         }
     });
+// Starts Time
 
+let displayTime = 180;
 
+function timeStart() {
+    let timerInterval = setInterval(function() {
+        displayTime--;
+        secondsEl.textContent = displayTime;
+    
+        // console.log("displayTime " + displayTime);
+        console.log(secondsEl.textContent);
+        // console.log(typeof secondsEl.textContent);
+
+        if(displayTime === 0) {
+            clearInterval(timerInterval);
+            console.log("This works");
+        }
+
+    }, 1000);
+}
+
+// let questions = [
+//     {
+//         question: "Inside which HTML element do we put the JavaScript?",
+//         choiceA1: "<script>",
+//         choiceB1: "<scripting>",
+//         choiceC1: "<js>",
+//         choiceD1: "<javascript>"
+//     }
+// ];
