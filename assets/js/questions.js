@@ -31,7 +31,6 @@ function timeStart() {
 }
 rulesStartBtnEl.on("click", function() {
     timeStart();
-    
 });
 
 

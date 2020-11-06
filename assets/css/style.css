@@ -277,10 +277,9 @@ body {
     transition: .5s;
 }
 .timer {
-    font-size: 1.2rem;
+    font-size: .75rem;
     text-transform: uppercase;
-    letter-spacing: .5rem;
-
+    letter-spacing: .3rem;
 
     width: 90%;
     height: auto;
@@ -289,6 +288,9 @@ body {
     margin: auto;
 
     border-top: gray 1px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 #seconds {
