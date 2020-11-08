@@ -230,7 +230,7 @@ body {
 
     display: flex;
 }
-.question {
+#question {
     font-size: 1.5rem;
     width: 100%;
     height: auto;
@@ -251,6 +251,9 @@ body {
 
     padding: 1rem;
     margin: auto;
+}
+.answerWrapper div {
+    border-radius: 1.2rem;
 }
 .answerWrapper .choices {
     text-align: center;
@@ -292,8 +295,11 @@ body {
 
     transition: .5s;
 }
-.timer p {
-    text-align: center;
+.correct {
+    background-color: rgb(137, 197, 137);
+}
+.incorrect {
+    background-color: rgb(202, 140, 140);
 }
 
 /* Form Page */

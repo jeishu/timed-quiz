@@ -72,14 +72,22 @@
         <!-- === Quiz Page === -->
             <div class="quizPage">
                 <section class="quizHeader">
-                    <div class="question">What is the question?</div>
+                    <div id="question">What is the question?</div>
                 </section>
                 <div class="answerWrapper">
-                    <div class="choices" data-number="1" id="choiceAbtn">A</div>
-                    <div class="choices" data-number="2" id="choiceBbtn">B</div>
-                    <div class="choices" data-number="3" id="choiceCbtn">C</div>
-                    <div class="choices" data-number="4" id="choiceDbtn">D</div>
-                </div>
+                    <div>
+                        <p class="choices" data-number="1" id="choice1btn">Choice 1</p>
+                    </div>
+                    <div>  
+                        <p class="choices" data-number="2" id="choice2btn">Choice 2</p>
+                    </div>  
+                    <div>
+                        <p class="choices" data-number="3" id="choice3btn">Choice 3</p>
+                    </div>  
+                    <div>
+                        <p class="choices" data-number="4" id="choice4btn">Choice 4</p>
+                    </div>
+                </div>  
                 <div class="timer">
                   Time Left: <span id="seconds">90</span>
                 </div> 
@@ -91,7 +99,7 @@
                     <div>Your Score is: <span class="formScore"></span></div>
                 </section>
                 <form id="userInput">
-                    <p>Your Initials: <input type="text"id="userInitials" placeholder="Initials Here"></input></p>
+                    <p>Your Initials: <input type="text"id="userInitials" placeholder="Initials Here"></p>
                     <div class="formSubmitBtn">Submit</div>
                 </form>
                 <div class="formBtnWrapper">
@@ -108,6 +116,7 @@
         
         <!-- JavaScript -->
         <script type="text/javascript" src="./assets/js/script.js"></script>
+        <!-- <script type="text/javascript" src="./assets/js/jQuery.js"></script> -->
     </body>
 
 </html>
