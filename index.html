@@ -35,8 +35,8 @@
               
                 <div class="rulesList">
                     <ul>
-                        <li>1. You will have 3 minutes on the starting timer.</li>
-                        <li>2. You will loose 20 seconds if you answer incorrectly.</li>
+                        <li>1. You will have 90 seconds on the starting timer.</li>
+                        <li>2. You will loose 15 seconds if you answer incorrectly.</li>
                         <li>3. You cannot exit the quiz while taking it.</li>
                         <li>4. Your score is the time you have left.</li>
                         <li>5. You can save your score at the end of the quiz.</li>
@@ -58,8 +58,17 @@
                     <span>Leader Board</span>
                 </div>
 
+                <table id="scoreTable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>    
+                </table>
+
                 <div class="scores">
-                    There are quizzes waiting to be taken.
+                    <p id="formFiller">
+                        There are quizzes waiting to be taken.
+                    </p>
                 </div>
                 
                 <!-- navigation buttons -->
@@ -69,6 +78,7 @@
                     </div>
                 </div>
             </div>
+
         <!-- === Quiz Page === -->
             <div class="quizPage">
                 <section class="quizHeader">
@@ -99,7 +109,7 @@
                     <div>Your Score is: <span class="formScore"></span></div>
                 </section>
                 <form id="userInput">
-                    <p>Your Initials: <input type="text"id="userInitials" placeholder="Initials Here"></p>
+                    <p>Your Initials: <input type="text" id="userInitials" placeholder="Initials Here"></p>
                     <div class="formSubmitBtn">Submit</div>
                 </form>
                 <div class="formBtnWrapper">

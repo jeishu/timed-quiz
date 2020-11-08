@@ -37,7 +37,7 @@
     let formHomeBtnEl = document.querySelector(".formHomeBtn");
     let formLbBtnEl = document.querySelector(".formLbBtn");
     let formScoreEl = document.querySelector(".formScore");
-    let formSumbitBtnEl = document.querySelector(".formSumbitBtn");
+    let formSubmitBtnEl = document.querySelector(".formSubmitBtn");
 
 // score of the user 
 let scoreArr = [];
@@ -106,6 +106,8 @@ let scoreArr = [];
             quizPageEl.style.display = "none";
             homePageEl.style.display = "flex";
         }
+        // reloads the page so the quiz counter and quizzes are reset
+        location.reload();
     });
 
 // Form Page Button
@@ -120,24 +122,19 @@ let scoreArr = [];
             quizPageEl.style.display = "none";
             formPageEl.style.display = "none";
             homePageEl.style.display = "flex";
-        }
-        // reloads the page so the quiz counter and quizzes are reset
-        // location.reload();
+        }  
     });
-    // if leaderboards button is clicked, the home page is shown and hides other pages
+    // if leaderboards button is clicked, the leaderboard is shown and hides other pages
     formLbBtnEl.addEventListener("click", function() {
         let formLbHide = true;
 
         if (formLbHide === true) {
-            homePageEl.style.display = "block";
+            homePageEl.style.display = "none";
             rulesPageEl.style.display = "none";
-            lbPageEl.style.display = "none";
+            lbPageEl.style.display = "block";
             quizPageEl.style.display = "none";
             formPageEl.style.display = "none";
-            homePageEl.style.display = "flex";
         }
-        // reloads the page so the quiz counter and quizzes are reset
-        // location.reload();
     });
 
 // Questions and Timers
@@ -195,7 +192,7 @@ let questions = [
 function gameStart(){
     questionCounter = 0;
     questionsLeft = [...questions];
-        console.log(questionsLeft);
+        // console.log(questionsLeft);
     questionChange();
 }
 
@@ -252,30 +249,116 @@ choicesEl.forEach( choice => {
         let choiceSelect = event.target;
         let choiceAnswer = choiceSelect.dataset["number"];
        
-        let choiceCorrect = choiceAnswer == questionsCurrent.answer ? "correct" : "incorrect";
+        let choiceCorrect = "";
         
-        choiceSelect.parentElement.classList.add(choiceCorrect);
-
-        setTimeout(function() {
-            choiceSelect.parentElement.classList.remove(choiceCorrect);
-            displayTime = displayTime - 20;
-            questionChange();
-        }, 1000);
-
-        // if (choiceAnswer == questionsCurrent.answer) {
-        // 
-        // }
-        // else {
-        //     displayTime = displayTime - 20;
-        // }
-        // console.log(choiceCorrect);
+        if (choiceAnswer == questionsCurrent.answer) {
+            choiceCorrect = "correct";
+            choiceSelect.parentElement.classList.add(choiceCorrect);
+            setTimeout(function() {
+                choiceSelect.parentElement.classList.remove(choiceCorrect);
+                questionChange();
+            }, 1000);
+        }
+        else {
+            choiceCorrect = "incorrect";
+            displayTime = displayTime - 15;
+            choiceSelect.parentElement.classList.add(choiceCorrect);
+            setTimeout(function() {
+                choiceSelect.parentElement.classList.remove(choiceCorrect);
+                questionChange();
+            }, 1000);
+        }
+        
+        console.log(choiceCorrect);
         
     })
 });
 
-function choiceTextRemove() {
-    if(questionCounter != 0){
-        quizPageEl.children[(questionCounter - 1)].setAttribute("style", "display:none");
-    } 
+scoreArr = [];
+let userInitialsEl = document.querySelector("#userInitials");
+
+// Gets the previcously stored items
+function scoreFunction() {
+    let  scoreKept = JSON.parse(localStorage.getItem("scoreInput"));
+    console.log(typeof scoreKept);
+        scoreArr = [];
+       
+        if(scoreKept){
+            for(let  i = 0; i<scoreKept.length;i++){
+                scoreArr.push(scoreKept[i]);
+            }
+        }
 }
 
+// adds new scores into the list
+function scoreKeeping() {
+    
+    scoreFunction();
+
+    let  userInput = {
+        name: userInitialsEl.value.trim(),
+        score: formScoreEl.innerText
+    }
+         console.log(userInput);
+    scoreArr.push(userInput);
+    localStorage.setItem("scoreInput", JSON.stringify(scoreArr));
+}
+
+formSubmitBtnEl.addEventListener("click", function(event) {
+    event.preventDefault();
+    scoreKeeping();
+    if(userInitialsEl.value){
+        // scoreKeeping();
+        alert("Your score is saved on the Leaderboards.");
+    }else{
+        alert("Initals Please.");
+    }
+    scoreRender();
+});
+
+let  scoreTableEl = document.querySelector("#scoreTable");
+
+function scoreRender() {
+    
+    let  scoreKept = JSON.parse(localStorage.getItem("scoreInput"));
+    console.log(scoreKept);
+    // let  scoreArr = [];
+
+    // scoreArr.push(scoreKept);
+
+    //  checks and gets previous scores and renders them
+    if(scoreKept !== null){
+        for(let  i = 0; i < scoreKept.length; i++) {
+            
+            let  score = scoreKept[i];
+
+            let  table = document.createElement("tr");
+            scoreTable.appendChild(table);
+
+            let  scoreInitials = document.createElement("td");
+            scoreInitials.innerText = scoreKept[i]["name"];
+            table.appendChild(scoreInitials);
+            
+            let  scoreSaved = document.createElement("td");
+            scoreSaved.innerText = score.score;
+            table.appendChild(scoreSaved);
+            
+            document.querySelector("#formFiller").style.display = "none";
+        }
+    }
+    else {
+        let  table = document.createElement("tr");
+        scoreTable.innerHTML = "";
+        scoreTable.appendChild(table);
+        
+        let  scoreInitials2 = document.createElement("th");
+        scoreInitials2.innerText = "Name";
+        table.appendChild(scoreInitials2);
+
+        let  scoreSaved2 = document.createElement("th");
+        scoreSaved2.innerText = "Score";
+        table.appendChild(scoreSaved2);
+    
+        document.querySelector("#formFiller").style.display = "none";
+    }
+}
