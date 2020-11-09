@@ -20,7 +20,7 @@ I created a quiz for Javascript fundamentals.
 
 - [x] Has a countdown timer.
 - [x] Can deduct time if the user miss a question.
-- [x] Can show you if you are right or wrong depending on the color (red - wrong, green - right).
+- [x] Can show you if you are right or wrong dgit statusepending on the color (red - wrong, green - right).
 - [x] Can save your score at the end of the quiz into the local storage.
 - [x] Can save your initials, or name at the end of the quiz into the local storage.
 - [x] Can save both your name and score into a leaderboard page.

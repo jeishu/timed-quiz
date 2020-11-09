@@ -236,6 +236,8 @@ choicesEl.forEach( choice => {
         if (choiceAnswer == questionsCurrent.answer) {
             choiceCorrect = "correct";
             choiceSelect.parentElement.classList.add(choiceCorrect);
+                        // The speed at which the questions change after being clicked on and if the user is correct or not.
+
             setTimeout(function() {
                 choiceSelect.parentElement.classList.remove(choiceCorrect);
                 questionChange();
@@ -245,6 +247,7 @@ choicesEl.forEach( choice => {
             choiceCorrect = "incorrect";
             displayTime = displayTime - 15;
             choiceSelect.parentElement.classList.add(choiceCorrect);
+            // The speed at which the questions change after being clicked on and if the user is correct or not.
             setTimeout(function() {
                 choiceSelect.parentElement.classList.remove(choiceCorrect);
                 questionChange();
