@@ -18,13 +18,12 @@ I created a quiz for Javascript fundamentals.
 
 ## Features
 
-* The application:
-    * Has a countdown timer.
-    * Can deduct time if the user miss a question.
-    * Can show you if you are right or wrong depending on the color (red - wrong, green - right).
-    * Can save your score at the end of the quiz into the local storage.
-    * Can save your initials, or name at the end of the quiz into the local storage.
-    * Can save both your name and your score into a leaderboard page.
+- [x] Has a countdown timer.
+- [x] Can deduct time if the user miss a question.
+- [x] Can show you if you are right or wrong depending on the color (red - wrong, green - right).
+- [x] Can save your score at the end of the quiz into the local storage.
+- [x] Can save your initials, or name at the end of the quiz into the local storage.
+- [x] Can save both your name and your score into a leaderboard page.
 
 ## Links
 
@@ -51,11 +50,18 @@ How the answer look like if you answer incorrectly.
 
 ## Language
 
-I used JavaScript, HTML and CSS. I did initially used jQuery framework, but switch over back to vanilla JavaScript. The jQuery code can be found on './js/jQuery.js'
+* JavaScript
+* HTML
+* CSS
+* ~~jQuery*~~
+
+*jQuery was used, but switch over back to vanilla JavaScript. The jQuery code can be found on './js/jQuery.js'
 
 ## Code-Example
 
-HTML: There isn't much in HTML. There are 5 sections acting as pages, their class name is .___Page
+HTML: 
+* '.___btn' -> Used to indicate buttons 
+* '.___Page' -> Used to indicate pages
 ```
 <div class="homePage">
     <h1>JavaScript Quiz</h1>
@@ -67,7 +73,8 @@ HTML: There isn't much in HTML. There are 5 sections acting as pages, their clas
 </div>
 ```
 
-CSS: A good 99% of the styling is in CSS. All buttons are made from div tags with hover styling.
+CSS: 
+* A good 99% of the styling is in CSS. All buttons are made from div tags with hover styling.
 ```
 .homeStartBtn:hover, 
 .homeLbBtn:hover, 
@@ -84,7 +91,12 @@ CSS: A good 99% of the styling is in CSS. All buttons are made from div tags wit
 }
 ```
 
-JavaScript: Sections are being shown as pages through the style.display = ""; in JS
+JavaScript: 
+* Sections are being shown as pages through the style.display = ""; in JS
+    * Pages are shown after they are called on with eventlisteners.
+* document.querySelector
+    * this selector is heavily used to grab DOM elements.
+    * '___EL' is used to indicate DOM Elements when creating the variable for them
 ```
 homeStartBtnEl.addEventListener("click", function() {
     let rulesHide = true;
@@ -98,7 +110,10 @@ homeStartBtnEl.addEventListener("click", function() {
 });
 ```
 
-jQuery: The framework was replaced by vanilla JavaScript.
+jQuery: 
+* The framework was replaced by vanilla JavaScript.
+* $('') used to grab DOM elements
+    * hide() and show() used to hide and show pages
 ```
  homeStartBtnEl.on("click", function() {
     let rulesHide = true;
@@ -116,11 +131,11 @@ jQuery: The framework was replaced by vanilla JavaScript.
 
 These are websites I used to aid me in learning different syntax and different methods, functions, etc for Javascript.
 
-> - [Developer Mozilla](https://developer.mozilla.org/en-US/)
-> - [W3School](https://www.w3schools.com/)
-> - [StackOverflow](https://www.stackoverflow.com/)
+> - [Developer Mozilla](https://developer.mozilla.org/en-US/) || Learn a good amount of methods and functions here.
+> - [W3School](https://www.w3schools.com/) || I pulled some questions fro the JavaScript quiz there and some questions I replaced with my own answers.
+> - [StackOverflow](https://www.stackoverflow.com/) || Most issues I had were resolved from looking at other people's problems.
 
-These websites aid me in creating this README.md
+These websites aid me in creating this README.
 
 > - [GitHub Docs](https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/basic-writing-and-formatting-syntax) || Learn most of my README syntax here.
 > - [Akash Nimare](https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3) || Based my README from his person.
@@ -128,16 +143,29 @@ These websites aid me in creating this README.md
 
 ## Tests/Issues
 
-> jQuery
+ jQuery
 - I started off using jQuery, but learn that so functions and methods within jQuery likes being used with other jQuery methods and functions.
 - Being limited in my knowledge in jQuery, I switched to vanilla JavaScript.
 - The learning process definitely help me learn and get more comfortable with JS and jQuery.
-> Syntax, Misspell, etc
+
+Syntax, Misspell, etc
 - Most of my problems within my code is that I would forget I set a variable to one name and make another.
 - I would forget to capitalize when needed to stay consistent.
-> Score Keeping
+
+Score Keeping
 - I had a good amount of issues getting my scores rendering out.
 - At first came out undefined, but Dan, a good classmate of mine, was able to help me see some syntax and misspell errors.
+
+Console Log
+- I haven't use much of console.log before, but during the making of this application, I use it very often to check functions, type of value, etc.
+
+Breakpoints in Chrome Dev Tool
+- I heavily used it towards the making of the quiz to see what is being call on and what is not working and what values my variables are calling.
+- Seeing live code at work is extremely nice to utilize.
+
+Leaderboard Page
+- I realized that my homepage doesn't load the list of scores and user name, but after the quiz, it does.
+- Still need to resolve that issue.
 
 ## Contribute/Credits
 
@@ -147,5 +175,5 @@ These websites aid me in creating this README.md
 
 ## License
 
-MIT © [Jeremy Zhu :: jeishu](https://github.com/jeishu)
+MIT © [Jeremy Zhu](https://github.com/jeishu)
 

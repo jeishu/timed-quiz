@@ -206,6 +206,9 @@ body {
     margin: 1rem auto;
     width: 80%;
 }
+#formFiller {
+    width: 100%;
+}
 #scoreTable { 
     width: 100%;
 }

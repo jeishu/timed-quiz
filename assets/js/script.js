@@ -6,38 +6,37 @@
     let quizPageEl = document.querySelector(".quizPage");
     let formPageEl = document.querySelector(".formPage");
     
-    // Home Page Buttons
+    // Home Page
     let homeStartBtnEl = document.querySelector(".homeStartBtn"); // goes to the rules page
     let homeLbBtnEl = document.querySelector(".homeLbBtn"); // goes to the leaderboard page
     
-    // Rules Page Buttons
+    // Rules Page
     let rulesHomeBtnEl = document.querySelector(".rulesHomeBtn"); // goes to the home page
     let rulesStartBtnEl = document.querySelector(".rulesStartBtn"); // goes to the quiz page
 
-    // Leaderboard Page
+    // Leaderboard
     let lbHomeBtnEl = document.querySelector(".lbHomeBtn"); // goes to the home page
+    let scoreTableEl = document.querySelector("#scoreTable"); // for the leaderboards
 
-    // Timer Variable
-    let timerEl = document.querySelector(".timer");
-    let secondsEl = document.querySelector("#seconds"); // for some reason document.querySelector("#seconds") was not working. 
-    
-    // Others
-    let questionEl = document.querySelector("#question");
+    // Quiz Page
     let answerWrapperEl = document.querySelector(".answerWrapper");
-
-    // Quiz Page Buttons
-    let choicesEl = Array.from(document.getElementsByClassName("choices"));
+    let questionEl = document.querySelector("#question");
+    let choicesEl = Array.from(document.getElementsByClassName("choices")); // Array.from makes the children inside the parent container an array
         // console.log(choicesEl);
     let choiceAbtnEl = document.querySelector("#choice1btn");
     let choiceBbtnEl = document.querySelector("#choice2btn");
     let choiceCbtnEl = document.querySelector("#choice3btn");
     let choiceDbtnEl = document.querySelector("#choice4btn");
+        // Timer Variable
+    let timerEl = document.querySelector(".timer"); // timer container
+    let secondsEl = document.querySelector("#seconds"); // the timer in seconds
 
-    // Form Page Buttons
+    // Form Page
     let formHomeBtnEl = document.querySelector(".formHomeBtn");
     let formLbBtnEl = document.querySelector(".formLbBtn");
     let formScoreEl = document.querySelector(".formScore");
     let formSubmitBtnEl = document.querySelector(".formSubmitBtn");
+    let userInitialsEl = document.querySelector("#userInitials");
 
 // score of the user 
 let scoreArr = [];
@@ -198,8 +197,10 @@ function gameStart(){
 
 displayTime = 90;
 
+// starts timer function and keeps scores after quiz
 function timeStart() {
     let timerInterval = setInterval(function() {
+        
         displayTime--;
         secondsEl.textContent = displayTime;    
 
@@ -217,6 +218,7 @@ function timeStart() {
         }
     }, 1000);
 }
+
 // Changes the questions and answers randomly from the array
 function questionChange() {
     
@@ -226,31 +228,35 @@ function questionChange() {
         formPageEl.style.display = "block";
     }
 
+    // randomize the questions using Math.random
     questionCounter++;
     let questionIndex = Math.floor(Math.random() * questionsLeft.length);
     questionsCurrent = questionsLeft[questionIndex];
     questionEl.innerText = questionsCurrent.question;
 
+    // using 'dataset'  to pick out the numbers from the data-number from the HTML
     choicesEl.forEach( choice => {
         let number = choice.dataset["number"];
         choice.innerText = questionsCurrent["choice" + number];
     });
 
+    // removes the question after it is used
     questionsLeft.splice(questionIndex, 1);
 }
 
-let choiceText = "";
 
-// Checks Answer
+// Checks Answer on click
 choicesEl.forEach( choice => {
     choice.addEventListener("click", event => {
         // console.log(event.target);
         
+        // targets what is being clicked
         let choiceSelect = event.target;
         let choiceAnswer = choiceSelect.dataset["number"];
        
         let choiceCorrect = "";
         
+        // tells the use if they are correct or not depending on the color, red -> wrong, green -> right
         if (choiceAnswer == questionsCurrent.answer) {
             choiceCorrect = "correct";
             choiceSelect.parentElement.classList.add(choiceCorrect);
@@ -275,12 +281,11 @@ choicesEl.forEach( choice => {
 });
 
 scoreArr = [];
-let userInitialsEl = document.querySelector("#userInitials");
 
 // Gets the previcously stored items
 function scoreFunction() {
     let  scoreKept = JSON.parse(localStorage.getItem("scoreInput"));
-    console.log(typeof scoreKept);
+    // console.log(typeof scoreKept);
         scoreArr = [];
        
         if(scoreKept){
@@ -304,11 +309,11 @@ function scoreKeeping() {
     localStorage.setItem("scoreInput", JSON.stringify(scoreArr));
 }
 
+// check the submit button
 formSubmitBtnEl.addEventListener("click", function(event) {
     event.preventDefault();
     scoreKeeping();
     if(userInitialsEl.value){
-        // scoreKeeping();
         alert("Your score is saved on the Leaderboards.");
     }else{
         alert("Initals Please.");
@@ -316,15 +321,11 @@ formSubmitBtnEl.addEventListener("click", function(event) {
     scoreRender();
 });
 
-let  scoreTableEl = document.querySelector("#scoreTable");
-
+// renders the score and keeps in local storage
 function scoreRender() {
     
     let  scoreKept = JSON.parse(localStorage.getItem("scoreInput"));
     console.log(scoreKept);
-    // let  scoreArr = [];
-
-    // scoreArr.push(scoreKept);
 
     //  checks and gets previous scores and renders them
     if(scoreKept !== null){
