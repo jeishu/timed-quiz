@@ -140,6 +140,7 @@ body {
 .rulesHomeBtn,
 .rulesStartBtn,
 .lbHomeBtn,
+.lbClearBtn,
 .formHomeBtn,
 .formLbBtn {
     font-size: .9rem;
@@ -167,6 +168,7 @@ body {
 .rulesHomeBtn:hover, 
 .rulesStartBtn:hover,
 .lbHomeBtn:hover,
+.lbClearBtn:hover,
 .formHomeBtn:hover,
 .formLbBtn:hover {
     cursor: pointer;
@@ -178,7 +180,7 @@ body {
 
 /* Leaderboard Page */
 .lbPage {
-    /* Hides the Leaderboard Page until being called on */
+    /* Hides the Leaderboard Page until being called on in JS*/
     display: none;
     justify-content: center;
     align-items: center;
@@ -227,7 +229,7 @@ th {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Hides the Quiz Page until being called on */
+    /* Hides the Quiz Page until being called on in JS */
     display: none;
 }
 .quizHeader {
@@ -322,7 +324,7 @@ th {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    /* Hides the Quiz Page until being called on */
+    /* Hides the Quiz Page until being called on in JS */
     display: none;
 }
 .formPage div {

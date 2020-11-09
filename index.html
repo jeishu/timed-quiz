@@ -40,6 +40,7 @@
                         <li>3. You cannot exit the quiz while taking it.</li>
                         <li>4. Your score is the time you have left.</li>
                         <li>5. You can save your score at the end of the quiz.</li>
+                        <li>6. The timer will start when you click "Start Quiz".</li>
                     </ul>
                 </div>
                 
@@ -67,14 +68,15 @@
 
                 <div class="scores">
                     <p id="formFiller">
-                        There are quizzes waiting to be taken.
+                        
                     </p>
                 </div>
                 
                 <!-- navigation buttons -->
                 <div class="buttonWrapper">
                     <div class="buttonSubwrapper">
-                        <div class="lbHomeBtn">Back</div>
+                        <div class="lbHomeBtn">Home</div>
+                        <div class="lbClearBtn">Clear Scores</div>
                     </div>
                 </div>
             </div>
@@ -109,12 +111,12 @@
                     <div>Your Score is: <span class="formScore"></span></div>
                 </section>
                 <form id="userInput">
-                    <p>Your Initials: <input type="text" id="userInitials" placeholder="Initials Here"></p>
+                    <p>Your Initials: <input type="text" id="userInitials" onfocus="this.value=''" placeholder="Initials Here"></p>
                     <div class="formSubmitBtn">Submit</div>
                 </form>
                 <div class="formBtnWrapper">
                     <div class="formHomeBtn">Home Page</div>
-                    <div class="formLbBtn">LeaderBoard</div>
+                    <!-- <div class="formLbBtn">LeaderBoard</div> -->
                 </div>
             </div>
 

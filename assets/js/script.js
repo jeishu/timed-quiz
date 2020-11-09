@@ -16,7 +16,9 @@
 
     // Leaderboard
     let lbHomeBtnEl = document.querySelector(".lbHomeBtn"); // goes to the home page
+    let lbClearBtnEl = document.querySelector(".lbClearBtn"); // clears scores and name
     let scoreTableEl = document.querySelector("#scoreTable"); // for the leaderboards
+    
 
     // Quiz Page
     let answerWrapperEl = document.querySelector(".answerWrapper");
@@ -44,67 +46,49 @@ let scoreArr = [];
 // Home Page Buttons
     // if the 'start quiz' button is clicked, the rules page is shown and hides other pages
     homeStartBtnEl.addEventListener("click", function() {
-        let rulesHide = true;
-
-        if (rulesHide === true) {
-            homePageEl.style.display = "none";
-            rulesPageEl.style.display = "block";
-            lbPageEl.style.display = "none";
-            quizPageEl.style.display = "none";
-        }
+        homePageEl.style.display = "none";
+        rulesPageEl.style.display = "block";
+        lbPageEl.style.display = "none";
+        quizPageEl.style.display = "none";
+        
     });
     // if the 'leaderboard' button is clicked, the leaderboard page is shown and hides other pages
     homeLbBtnEl.addEventListener("click", function() {
-        let lbHide = true;
-
-        if (lbHide === true) {
-            homePageEl.style.display = "none";
-            rulesPageEl.style.display = "none";
-            lbPageEl.style.display = "block";
-            quizPageEl.style.display = "none";
-        }
+        homePageEl.style.display = "none";
+        rulesPageEl.style.display = "none";
+        lbPageEl.style.display = "block";
+        quizPageEl.style.display = "none";
+        
     });
 
 // Rules Page Buttons
     // if the 'back' button is clicked, the home page is shown and hides other pages
     rulesHomeBtnEl.addEventListener("click", function() {
-        let homeHide = true;
-
-        if (homeHide === true) {
             homePageEl.style.display = "block";
             rulesPageEl.style.display = "none";
             lbPageEl.style.display = "none";
             quizPageEl.style.display = "none";
             homePageEl.style.display = "flex";
-        }
     });
     // if the 'start quiz' button is clicked, the quiz page is shown and hides other pages
     rulesStartBtnEl.addEventListener("click", function() {
         timeStart();
         gameStart();
-        let quizHide = true;
-
-        if (quizHide === true) {
             homePageEl.style.display = "none";
             rulesPageEl.style.display = "none";
             lbPageEl.style.display = "none";
             quizPageEl.style.display = "block";
-        }
-       
     });
 
 // Leaderboard Page Button
     // if back button is clicked, the home page is shown and hides other pages
     lbHomeBtnEl.addEventListener("click", function() {
-        let homeHide = true;
+        homePageEl.style.display = "block";
+        rulesPageEl.style.display = "none";
+        lbPageEl.style.display = "none";
+        quizPageEl.style.display = "none";
+        homePageEl.style.display = "flex";
 
-        if (homeHide === true) {
-            homePageEl.style.display = "block";
-            rulesPageEl.style.display = "none";
-            lbPageEl.style.display = "none";
-            quizPageEl.style.display = "none";
-            homePageEl.style.display = "flex";
-        }
         // reloads the page so the quiz counter and quizzes are reset
         location.reload();
     });
@@ -112,29 +96,21 @@ let scoreArr = [];
 // Form Page Button
     // if home page button is clicked, the home page is shown and hides other pages
     formHomeBtnEl.addEventListener("click", function() {
-        let formHomeHide = true;
-
-        if (formHomeHide === true) {
             homePageEl.style.display = "block";
             rulesPageEl.style.display = "none";
             lbPageEl.style.display = "none";
             quizPageEl.style.display = "none";
             formPageEl.style.display = "none";
             homePageEl.style.display = "flex";
-        }  
     });
     // if leaderboards button is clicked, the leaderboard is shown and hides other pages
-    formLbBtnEl.addEventListener("click", function() {
-        let formLbHide = true;
-
-        if (formLbHide === true) {
-            homePageEl.style.display = "none";
-            rulesPageEl.style.display = "none";
-            lbPageEl.style.display = "block";
-            quizPageEl.style.display = "none";
-            formPageEl.style.display = "none";
-        }
-    });
+    // formLbBtnEl.addEventListener("click", function() {
+    //         homePageEl.style.display = "none";
+    //         rulesPageEl.style.display = "none";
+    //         lbPageEl.style.display = "block";
+    //         quizPageEl.style.display = "none";
+    //         formPageEl.style.display = "none";
+    // });
 
 // Questions and Timers
 let questionsCurrent = {};
@@ -263,7 +239,7 @@ choicesEl.forEach( choice => {
             setTimeout(function() {
                 choiceSelect.parentElement.classList.remove(choiceCorrect);
                 questionChange();
-            }, 1000);
+            }, 800);
         }
         else {
             choiceCorrect = "incorrect";
@@ -272,7 +248,7 @@ choicesEl.forEach( choice => {
             setTimeout(function() {
                 choiceSelect.parentElement.classList.remove(choiceCorrect);
                 questionChange();
-            }, 1000);
+            }, 800);
         }
         
         console.log(choiceCorrect);
@@ -312,13 +288,21 @@ function scoreKeeping() {
 // check the submit button
 formSubmitBtnEl.addEventListener("click", function(event) {
     event.preventDefault();
-    scoreKeeping();
+    
     if(userInitialsEl.value){
-        alert("Your score is saved on the Leaderboards.");
+        scoreKeeping();
+        alert("ヽ(￣～￣　)ノ Your score is saved on the Leaderboards. ");
+        userInitialsEl.value = "";
+        homePageEl.style.display = "block";
+        rulesPageEl.style.display = "none";
+        lbPageEl.style.display = "none";
+        quizPageEl.style.display = "none";
+        formPageEl.style.display = "none";
+        homePageEl.style.display = "flex";
     }else{
-        alert("Initals Please.");
+        alert("(￣_￣)・・・ Initals Please.");
+        return;
     }
-    scoreRender();
 });
 
 // renders the score and keeps in local storage
@@ -344,7 +328,7 @@ function scoreRender() {
             scoreSaved.innerText = score.score;
             table.appendChild(scoreSaved);
             
-            document.querySelector("#formFiller").style.display = "none";
+            // document.querySelector("#formFiller").style.display = "none";
         }
     }
     else {
@@ -360,6 +344,24 @@ function scoreRender() {
         scoreSaved2.innerText = "Score";
         table.appendChild(scoreSaved2);
     
-        document.querySelector("#formFiller").style.display = "none";
+        // document.querySelector("#formFiller").style.display = "none";
     }
 }
+scoreRender();    
+
+function clearScores() {
+    localStorage.removeItem("scoreInput");
+    scoreRender();
+}
+
+lbClearBtnEl.addEventListener("click", function() {
+    let clearConfirm = confirm("..・ヾ(。＞＜)シ Do you really want to clear your scores? Press OK to clear. Press CANCEL to not cancel.");
+
+    if(clearConfirm === true) {
+        alert("~(>_<~) Your scores are cleared.")
+        clearScores();
+    }
+    else {
+        alert("(￢ ￢) Your scores are cleared. ");
+    }
+});

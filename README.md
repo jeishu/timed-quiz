@@ -12,7 +12,7 @@ I created a quiz for Javascript fundamentals.
 * [Language](#Language)
 * [Code-Example](#Code-Example)
 * [Reference](#Reference)
-* [Tests/Issues](#Tests/Issues)
+* [Tests/Issues/Notes](#Tests/Issues/Notes)
 * [Contribute/Credits](#Contribute/Credits)
 * [License](#License)
 
@@ -23,7 +23,9 @@ I created a quiz for Javascript fundamentals.
 - [x] Can show you if you are right or wrong depending on the color (red - wrong, green - right).
 - [x] Can save your score at the end of the quiz into the local storage.
 - [x] Can save your initials, or name at the end of the quiz into the local storage.
-- [x] Can save both your name and your score into a leaderboard page.
+- [x] Can save both your name and score into a leaderboard page.
+- [x] Can clear the leaderboard records from local storage.
+- [] Responsive to the screen size.
 
 ## Links
 
@@ -99,14 +101,10 @@ JavaScript:
     * '___EL' is used to indicate DOM Elements when creating the variable for them
 ```
 homeStartBtnEl.addEventListener("click", function() {
-    let rulesHide = true;
-
-    if (rulesHide === true) {
         homePageEl.style.display = "none";
         rulesPageEl.style.display = "block";
         lbPageEl.style.display = "none";
         quizPageEl.style.display = "none";
-    }
 });
 ```
 
@@ -116,14 +114,10 @@ jQuery:
     * hide() and show() used to hide and show pages
 ```
  homeStartBtnEl.on("click", function() {
-    let rulesHide = true;
-
-    if (rulesHide === true) {
         homePageEl.hide();
         rulesPageEl.show();
         lbPageEl.hide();
         quizPageEl.hide();
-    }
 });
 ```
 
@@ -141,7 +135,7 @@ These websites aid me in creating this README.
 > - [Akash Nimare](https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3) || Based my README from his person.
 > - [Mark Down Guide](https://www.markdownguide.org/cheat-sheet/) || README Syntax
 
-## Tests/Issues
+## Tests/Issues/Notes
 
  jQuery
 - I started off using jQuery, but learn that so functions and methods within jQuery likes being used with other jQuery methods and functions.
@@ -169,9 +163,7 @@ Leaderboard Page
 
 ## Contribute/Credits
 
-- My class instructor, Calvin
-- My tutor, Sangeetha
-- Dan, the extra eye that saw my problem with why my score rendering and name rendering was undefined.
+- [Dan](https://github.com/danaument), the extra eye that saw my problem with why my score rendering and name rendering was undefined.
 
 ## License
 
